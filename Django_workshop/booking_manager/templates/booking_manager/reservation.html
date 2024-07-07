@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation</title>
+</head>
+<body>
+{{ error_message }}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label>
+            Comment:
+            <input type="text" name="comment">
+        </label>
+        <label>
+            Select date:
+            <input type="date" name="reservation_date">
+        </label>
+        <input type="submit">
+    </form>
+    <p>List of Reservation:</p>
+    {% for booking in reservation %}
+    <p>Booking date: {{ booking.date }}</p>
+    <p>comment: {{ booking.comment }}</p>
+    {% endfor %}
+</body>
+</html>

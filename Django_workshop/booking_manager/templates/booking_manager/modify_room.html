@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify room</title>
+</head>
+<body>
+   {{ error_message}}
+
+   <p>You are modifying room {{ room.room_name }}</p>
+   <p>Room capacity: {{ room.room_capacity }}</p>
+   <p>Projector availability: {{ room.projector_availability }}</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label>
+            Room name:
+            <input type="text" name="room_name">
+        </label>
+        <label>
+            Room capacity:
+            <input type="number" name="room_capacity">
+        </label>
+        <label>
+            Projector availability:
+            <input type="checkbox" name="projector_availability">
+        </label>
+        <input type="submit">
+    </form>
+</body>
+</html>

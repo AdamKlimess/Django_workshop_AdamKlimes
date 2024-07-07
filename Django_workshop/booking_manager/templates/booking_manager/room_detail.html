@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room detail</title>
+</head>
+<body>
+    <p>Room name: {{ room.room_name }}</p>
+    <p>Room capacity: {{ room.room_capacity }}</p>
+    <p>Projector availability: {{ room.projector_availability }}</p>
+    <p>Future bookings:</p>
+    {% for booking in reservation %}
+    <p>Booking date: {{ booking.date }}</p>
+    <p>comment: {{ booking.comment }}</p>
+    {% endfor %}
+    <a href="{% url "modify_room" room_id=room.id %}">Edit</a>
+    <a href="/room/delete/{{ room.id }}/">Delete</a>
+    <a href="/room/reservation/{{ room.id }}/">Reserve</a>
+</body>
+</html>

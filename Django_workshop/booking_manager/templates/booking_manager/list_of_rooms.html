@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking manager</title>
+</head>
+<body>
+    {% for room in rooms %}
+    <p>
+        Room ID: {{ room.id }}<br>
+        Room name: <a href="/room/detail/{{ room.id }}/">{{ room.room_name }}</a><br>
+        Room capacity: {{ room.room_capacity }}<br>
+        Room availability: {{ room.room_availability }}<br>
+        Projector availability: {{ room.projector_availability }} <br>
+        <a href="{% url "modify_room" room_id=room.id %}">Edit</a>
+        <a href="/room/delete/{{ room.id }}/">Delete</a>
+        <a href="/room/reservation/{{ room.id }}/">Reserve</a>
+    </p>
+    {% endfor %}
+    <a href="/room/search/">Search room</a>
+    <a href="/room/new/">Add new room</a>
+</body>
+<footer>
+    © Adam Klimeš 2024
+</footer>
+</html>
